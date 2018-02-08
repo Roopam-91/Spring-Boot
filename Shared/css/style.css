@@ -1,0 +1,43 @@
+.navbar-default {
+    background: white;
+    border:none;
+}
+
+.navbar-default .navbar-brand {
+    color: black;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: black;
+}
+.whitetext{
+	color:white
+}
+.backButton {
+		border-radius: 4px;
+		padding: 8px;
+		border: none;
+		font-size: 16px;
+		background-color: #2eacd1;
+		color: white;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		cursor: pointer;
+	}
+	.invisible {
+		display: none;
+	}
+	.jumbotron{
+	margin-top:20px;
+	background-image:  url("../images/SurveyNavbar.jpg");
+	background-size:cover;
+	}
+	.paddingTop{
+	padding-top:10px;
+	}
+	.heightReducer{
+	overflow: auto;
+    width: 550px;
+    height: 300px;   
+	}

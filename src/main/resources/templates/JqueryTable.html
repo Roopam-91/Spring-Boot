@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Products</title>
+    <th:block th:include="layout/header"></th:block>
+    <script>
+    $(document).ready(function(){
+    $.getJSON("",function(data){
+    var prod='';
+    $.each(data,function(key,product){
+    prod+="<tr>";
+    prod+="<td>"+product.id+"</td>";
+    prod+="<td>"+product.name+"</td>";
+    prod+="<td>"+product.description+"</td>";
+    prod+="<td>"+product.type+"</td>";
+    prod+="<td>"+product.category+"</td>";
+    prod+="<td>"+product.price+"</td>";
+    prod+="</tr>";
+    });
+    $('#product_table').append(prod);
+    });
+    });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div id="product_table_div">
+        <h2>All Products</h2>
+        <table class="table table-striped" id="product_table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>            
+        </table>
+    </div>
+</div>
+</body>
+</html>

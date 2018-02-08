@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+
+    
+<html>
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+<link rel="stylesheet" href="/css/style.css" />
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+<script>
+    function openPopUp(){   
+	window.open("/popUp",'window','width=200,height=300');
+}
+function printMousePos(event) {
+    alert("clientX: " + event.clientX +
+    " - clientY: " + event.clientY);
+}
+
+$( window ).on( "load", function() {
+        console.log( "window loaded" );
+        var index=1;
+      var temp;
+      for( temp=1;temp<5;temp++){
+      console.log("positivesurvey"+temp);
+      console.log("negativesurvey"+temp);
+      }
+        var d = document.getElementById("positivesurvey"+index);
+ var ctx2 = d.getContext("2d");
+ctx2.fillStyle = "green";
+ctx2.fillRect(20, 20, d.width, 30);
+ var c = document.getElementById("negativesurvey"+index);
+ var ctx = c.getContext("2d");
+ctx.fillStyle = "red";
+ctx.fillRect(0, 20, c.width, 30);   
+    
+         });
+           
+
+    </script>
+</head>
+<body>
+
+	<div class="container">
+		<div>
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="/">Home</a>
+						<ul class="nav navbar-nav">
+							<li><a href="/products">Products List</a></li>
+							<li><a href="/products/add">Create Product</a></li>
+							<li><a href="javascript:openPopUp();">Open PopUp Form</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			<div class="jumbotron">
+				<div class="row text-center">
+					<div class="row">
+						<div class="col-xl-9 mx-auto">
+							<h1 style="color: white;">Survey Manager</h1>
+							<p style="color: rgba(255, 255, 255, 0.5)">Build And View
+								Survey Polls Instantly With Survey Manager!</p>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<button type="button" class="btn btn-primary">Create
+						Survey</button>
+				</div>
+			</div>
+			<div style="padding-top: 10px; height: 30px">
+				<div class="col-md-6">
+					<canvas id="chart" width="500" height="500" style="background-color: white">  </canvas>
+				</div>
+				<div class="col-md-3 heightReducer">
+					<div style="padding-top: 10px">
+						<canvas height="60" id="positivesurvey1" name="25" width="25"></canvas>
+						<!--
+-->                    <canvas width="${survey.complement}" height="60" id="negativesurvey1" name="25"></canvas>
+					</div>
+					<div style="padding-top: 10px">
+						<canvas height="60" id="positivesurvey2" name="50" width="50"></canvas>
+						<!--
+-->                    <canvas width="${survey.complement}" height="60" id="negativesurvey2" name="50"></canvas>
+					</div>
+					<div style="padding-top: 10px">
+						<canvas height="60" id="positivesurvey3" name="75" width="75"></canvas>
+						<!--
+-->                    <canvas width="${survey.complement}" height="60" id="negativesurvey3" name="75"></canvas>
+					</div>
+					<div style="padding-top: 10px">
+						<canvas height="60" id="positivesurvey4" name="100" width="100"></canvas>
+						<!--
+-->                    <canvas width="${survey.complement}" height="60" id="negativesurvey4" name="100"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>    

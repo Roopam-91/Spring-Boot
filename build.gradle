@@ -1,0 +1,45 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+group = 'com.example.springmvc'
+version = '0.0.1-SNAPSHOT'
+
+description = """springmvc"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'java'
+        }
+        resources {
+            srcDir 'resources'
+        }
+    }
+}
+
+jar {
+   destinationDir = file('dist/jar')
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version:'1.5.2.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version:'1.5.2.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'1.5.2.RELEASE'
+    compile group: 'org.webjars', name: 'bootstrap', version:'3.3.7-1'
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version:'1.5.2.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version:'1.5.2.RELEASE'
+    runtime group: 'com.h2database', name: 'h2', version:'1.4.193'
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'1.5.2.RELEASE') {
+exclude(module: 'commons-logging')
+    }
+}

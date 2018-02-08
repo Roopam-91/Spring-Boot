@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
+	rel="stylesheet" media="screen" />
+<link rel="stylesheet" th:href="@{/css/style.css}"
+	href="../../static/css/style.css" />
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+<script>
+    function openPopUp(){   
+	window.open("/popUp",'window','width=200,height=300');
+}
+window.onload = function () {
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,	
+		data: [{
+		type: "doughnut",
+		startAngle: 60,
+		//innerRadius: 60,
+		indexLabelFontSize: 17,
+		indexLabel: "{label} - #percent%",
+		toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+		dataPoints: [
+			{ y: 60, label: "Open",color:"#b84d45" },
+			{ y: 40, label: "Completed",color:"#808000" },
+					]
+	}]
+});
+chart.render();
+
+}
+
+
+    </script>
+</head>
+<body>
+
+	<div class="container">
+		<div th:fragment="header">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#" th:href="@{/}">Home</a>
+						<ul class="nav navbar-nav">
+							<li><a th:href="@{/products}">Products List</a></li>
+							<!-- <li><a th:href="@{/products/add}">Create Product</a></li> -->
+							<li><a href="javascript:createProduct()">Create Product</a>
+							<li><a href="javascript:openPopUp();">Open PopUp Form</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			<div class="jumbotron">
+				<div class="row text-center">
+					<div class="row">
+						<div class="col-xl-9 mx-auto">
+							<h1 style="color: white;">Survey Manager</h1>
+							<p style="color: rgba(255, 255, 255, 0.5)">Build And View
+								Survey Polls Instantly With Survey Manager!</p>
+						</div>
+					</div>
+				</div>
+				 <div class="row text-center">
+					<button type="button" class="btn btn-primary">Create Survey</button>
+				</div> 
+			</div>
+			<div class="row">	
+			<div class="col-md-6">		
+			<div id="chartContainer" style="height: 400px; width: 100%"></div>
+			</div>			
+			<div class="col-md-3 heightReducer">
+			<div>   
+        <h2>All Products</h2>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr>
+                <td>8317320d-5bbd-4b90-ad01-94da11ed937b</td>
+                <td>Milky Bar</td>
+                <td>Milky Bar with chocolate and hazelnut</td>
+                <td>CANDIES</td>
+                <td>BARS</td>
+                <td>1.99</td>
+                <td><a class="btn btn-default" href="/products/edit/8317320d-5bbd-4b90-ad01-94da11ed937b">Edit</a></td>
+                <td><a class="btn btn-danger" href="/products/delete/8317320d-5bbd-4b90-ad01-94da11ed937b">Delete</a></td>
+            </tr>
+            <tr>
+                <td>0186605e-01b0-42a5-9ac1-975c88ff268e</td>
+                <td>Almond Bar</td>
+                <td>Almond Bar with chocolate and honey</td>
+                <td>CANDIES</td>
+                <td>BARS</td>
+                <td>2.99</td>
+                <td><a class="btn btn-default" href="/products/edit/0186605e-01b0-42a5-9ac1-975c88ff268e">Edit</a></td>
+                <td><a class="btn btn-danger" href="/products/delete/0186605e-01b0-42a5-9ac1-975c88ff268e">Delete</a></td>
+            </tr>
+        </table>
+    
+</div>	
+			 </div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
